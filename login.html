@@ -110,7 +110,7 @@
                         <label for="email" class="block text-sm font-medium text-green-700">Correo electrónico</label>
                         <div class="mt-1">
                             <input id="email" name="email" type="email" autocomplete="email" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 hover:bg-green-100"> 
+                                   class="bg-gray-300 text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 hover:bg-green-100"> 
                         </div>
                     </div>
                     
@@ -118,7 +118,7 @@
                         <label for="password" class="block text-sm font-medium text-green-700">Contraseña</label>
                         <div class="mt-1">
                             <input id="password" name="password" type="password" autocomplete="current-password" required 
-                                   class="w-full px-4 py-3 border border-green-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 hover:bg-green-100">
+                                   class=" bg-gray-300 w-full px-4 py-3 border border-green-500 rounded-lg focus:ring-blue-500 text-black focus:border-blue-500 hover:bg-green-100 ">
                         </div>
                     </div>
                     
@@ -158,9 +158,10 @@
                     </div>
                     
                     <div class="mt-6">
-                        <button class="w-full flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-green-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                            Registrarse
-                        </button>
+                      <button id="openRegisterModal" type="button" class="w-full flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-black bg-green-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+  Registrarse
+</button>
+
                     </div>
                 </div>
             </div>
@@ -337,5 +338,102 @@
         });
     </script>
     <!-- Final Script -->
+
+  <!-- Modal de Registro -->
+<div id="registerModal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex items-center justify-center">
+ <div class="bg-gray-800 rounded-lg shadow-lg w-full max-w-md p-6 relative max-h-[90vh] overflow-y-auto scrollbar-track-gray-800 scrollbar-thumb-green-600">
+
+    <button id="closeRegisterModal" class="absolute top-3 right-4 text-2xl font-bold text-gray-400 hover:text-red-500">&times;</button>
+
+    <!-- Logo centrado -->
+    <img src="img/redolls4.png" alt="Logo" class="mx-auto mb-6 w-32 md:w-48 lg:w-56">
+
+    <h2 class="text-2xl font-bold text-green-600 mb-4 text-center">Crear cuenta</h2>
+
+    <form id="registerForm" class="space-y-4">
+      <input type="text" placeholder="Nombre completo" required
+        class="w-full border rounded-lg px-4 py-3 border-green-600 bg-black text-white placeholder-green-400 focus:ring-2 focus:ring-green-600">
+      <input type="email" placeholder="Correo electrónico" required
+        class="w-full border rounded-lg px-4 py-3 border-green-600 bg-black text-white placeholder-green-400 focus:ring-2 focus:ring-green-600">
+      <input type="password" placeholder="Contraseña" required
+        class="w-full border rounded-lg px-4 py-3 border-green-600 bg-black text-white placeholder-green-400 focus:ring-2 focus:ring-green-600">
+      
+      <button type="submit"
+        class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition">
+        Registrarse
+      </button>
+    </form>
+
+    <p id="successMessage" class="hidden text-center text-green-400 mt-4 font-semibold">¡Registro Exitoso!</p>
+  </div>
+</div>
+
+
+
+
+<script>
+  const modal = document.getElementById("registerModal");
+  const openBtn = document.getElementById("openRegisterModal");
+  const closeBtn = document.getElementById("closeRegisterModal");
+  const form = document.getElementById("registerForm");
+  const successMessage = document.getElementById("successMessage");
+
+  // Abrir modal y bloquear scroll
+  openBtn.onclick = () => {
+    modal.classList.remove("hidden");
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Cerrar modal y restaurar scroll
+  closeBtn.onclick = () => {
+    modal.classList.add("hidden");
+    document.body.style.overflow = 'auto';
+  };
+
+  // Cerrar al hacer clic fuera del contenido
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  // Enviar formulario y redirigir
+  form.onsubmit = (e) => {
+    e.preventDefault();
+
+    // Mostrar mensaje de éxito
+    successMessage.classList.remove("hidden");
+
+    // Esperar 2 segundos y redirigir a conocenos.html
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      document.body.style.overflow = 'auto';
+      window.location.href = "conocenos.html";
+    }, 2000);
+  };
+</script>
+
+
+<!-- Final -->
+
+<!-- Iniciar sesion -->
+<script>
+  const loginForm = document.querySelector("form"); // asegúrate que sea el formulario de login
+
+  loginForm.onsubmit = function (e) {
+    e.preventDefault(); // Evita el envío tradicional si estás haciendo algo antes
+    window.location.href = "conocenos.html"; // Redirige a la página deseada
+  };
+</script>
+
+<!-- Volver inicio -->
+    <script>
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+</script>
+
+
 </body>
 </html>

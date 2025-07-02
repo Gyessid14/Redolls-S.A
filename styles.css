@@ -1,0 +1,67 @@
+/* Fondo y tipografía */
+    #hero {
+      background: linear-gradient(to bottom, #013506, #047e31);
+
+      color: #ffffff;
+      padding: 100px 20px;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Logo grande y responsivo */
+    .logo-hero {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 40px auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-hero:hover {
+      transform: scale(1.05);
+      
+    }
+
+    /* Botones */
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .hero-buttons a {
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 180px;
+      text-align: center;
+    }
+
+    .btn-get-started {
+      background-color: #22c55e;
+      color: white;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-get-started:hover {
+      background-color: #099209;
+      transform: scale(1.1);
+    }
+
+    .btn-watch-video {
+      background-color: transparent;
+      border: 2px solid #22c55e;
+      color: #ffffff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-watch-video:hover {
+      background-color: #cee6d7;
+      color: rgb(44, 156, 21);
+      transform: scale(1.1);
+    }
+ 

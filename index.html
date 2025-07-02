@@ -6,119 +6,13 @@
     <title>Redolls S.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="img/redolls2.png">
-    <style>
-        /* Transiciones suaves para el menú móvil */
-        .mobile-menu {
-            transition: all 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-        
-        /* Efecto hover para las tarjetas */
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        /* Estilo para el input de búsqueda de ofertas */
-        .search-jobs::placeholder {
-            color: #6b7280;
-        }
-        
-        /* Estilo para el input de búsqueda de servicios */
-        .search-services::placeholder {
-            color: #e5e7eb;
-        }
-        
-        /* Animación para el botón de login */
-        .login-btn:hover {
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+   
 
 </head>
 <body class="bg-gray-50 font-sans">
 <section id="hero" class="hero section dark-background">
-  <style>
-    /* Fondo y tipografía */
-    #hero {
-      background: linear-gradient(to bottom, #000000, #01441a);
-
-      color: #ffffff;
-      padding: 100px 20px;
-      text-align: center;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    /* Logo grande y responsivo */
-    .logo-hero {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      margin: 0 auto 40px auto;
-      transition: transform 0.3s ease;
-    }
-
-    .logo-hero:hover {
-      transform: scale(1.05);
-    }
-
-    /* Botones */
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .hero-buttons a {
-      padding: 14px 32px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      min-width: 180px;
-      text-align: center;
-    }
-
-    .btn-get-started {
-      background-color: #22c55e;
-      color: white;
-    }
-
-    .btn-get-started:hover {
-      background-color: #087530;
-    }
-
-    .btn-watch-video {
-      background-color: transparent;
-      border: 2px solid #22c55e;
-      color: #22c55e;
-    }
-
-    .btn-watch-video:hover {
-      background-color: #cee6d7;
-      color: rgb(44, 156, 21);
-    }
-  </style>
+ 
 
   <div class="container">
     <!-- Logo centrado -->
