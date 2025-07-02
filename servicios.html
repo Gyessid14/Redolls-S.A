@@ -6,6 +6,8 @@
     <title>Redolls S.A</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="img/redolls2.jpeg" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
     <style>
         /* Transiciones suaves para el menú móvil */
         .mobile-menu {
@@ -25,7 +27,7 @@
         
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(21, 114, 201, 0.7);
+                box-shadow: 0 0 0 0 rgba(5, 151, 24, 0.7);
             }
             70% {
                 box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
@@ -37,12 +39,14 @@
     </style>
 
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-900 text-white font-sans">
+
 
     <!-- Navbar -->    
     <nav class="bg-black shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
+
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <span class="text-green-600 font-bold text-2xl">Redolls S.A</span>
@@ -51,15 +55,15 @@
                 
                 <!-- Menú desktop -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#conocenos" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Conócenos</a>
-                    <a href="#ofertas" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Ofertas Laborales</a>
-                    <a href="#servicios" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Servicios</a>
+                    <a href="conocenos.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Conócenos</a>
+                    <a href="oferta.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Ofertas Laborales</a>
+                    <a href="servicios.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Servicios</a>
                     <a href="login.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Login</a>
                 </div>
                 
                 <!-- Botón hamburguesa -->
                 <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-black-700 hover:text-green-600 focus:outline-none">
+                    <button id="menu-btn" class="text-green-700 hover:text-yellow-600 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -73,91 +77,170 @@
         <!-- Menú móvil -->
         <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 right-0 w-64 bg-black shadow-lg overflow-y-auto">
             <div class="px-5 py-4 flex justify-end">
-                <button id="close-menu" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                <button id="close-menu" class="text-green-700 hover:text-yellow-600 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
             <div class="px-5 pt-2 pb-8 space-y-4">
-               <a href="#ofertas" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Conocenos</a>
-                <a href="#ofertas" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Ofertas Laborales</a>
-                <a href="#servicios" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Servicios</a>
-                <a href="#login" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Login</a>
+               <a href="conocenos.html" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Conocenos</a>
+                <a href="oferta.html" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Ofertas Laborales</a>
+                <a href="servicios.html" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Servicios</a>
+                <a href="login.html" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Login</a>
             </div>
         </div>
     </nav>
     <!-- Final Menu Movil -->
 
      <!-- Sección Login -->
-    <section id="login" class="py-16 bg-gray-50">
-        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="servicios" class="py-16 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Acceso a clientes</h2>
-                <p class="mt-4 text-gray-600">
-                    Ingresa a tu área privada para gestionar tus proyectos y servicios
+                <h2 class="text-3xl font-extrabold sm:text-4xl">Nuestros Servicios</h2>
+                <p class="mt-4 max-w-2xl text-xl text-green-500 mx-auto">
+                    Soluciones a medida para cada necesidad del cliente!
                 </p>
             </div>
             
-            <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
-                <form class="mb-0 space-y-6">
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
-                        <div class="mt-1">
-                            <input id="email" name="email" type="email" autocomplete="email" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                        </div>
+            <!-- Buscador de servicios -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" id="search-services" placeholder="¿Qué servicio necesitas?" 
+                           class="search-services w-full px-6 py-4 bg-white-800 border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder-gray-400 text-black">
+                    <button class="absolute right-2 top-2 bg-green-600 text-white p-2 rounded-full hover:bg-yellow-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tarjetas de servicios -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-container">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Desarrollo Web" class="w-full h-full object-cover">
                     </div>
-                    
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                        <div class="mt-1">
-                            <input id="password" name="password" type="password" autocomplete="current-password" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Desarrollo Web</h3>
+                        <p class="text-gray-300 mb-4">
+                            Creamos sitios web y aplicaciones web a medida, optimizados para rendimiento y conversión.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $1,500</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox" 
-                                   class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">
-                                Recordar sesión
-                            </label>
-                        </div>
-                        
-                        <div class="text-sm">
-                            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
-                                ¿Olvidaste tu contraseña?
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <button type="submit" class="login-btn w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Iniciar sesión
-                        </button>
-                    </div>
-                </form>
-                
-                <div class="mt-6">
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white text-gray-500">
-                                ¿No tienes una cuenta?
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6">
-                        <button class="w-full flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Registrarse
-                        </button>
                     </div>
                 </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Aplicaciones Móviles" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Aplicaciones Móviles</h3>
+                        <p class="text-gray-300 mb-4">
+                            Desarrollamos aplicaciones nativas e híbridas para iOS y Android con las últimas tecnologías.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $3,000</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                             alt="Marketing Digital" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Marketing Digital</h3>
+                        <p class="text-gray-300 mb-4">
+                            Estrategias integrales de marketing digital para aumentar tu presencia y conversiones online.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $800/mes</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Diseño UX/UI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Diseño UX/UI</h3>
+                        <p class="text-gray-300 mb-4">
+                            Diseño de interfaces centradas en el usuario que mejoran la experiencia y engagement.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $1,200</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Consultoría TI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Consultoría TI</h3>
+                        <p class="text-gray-300 mb-4">
+                            Asesoramiento especializado para optimizar tus sistemas y procesos tecnológicos.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $150/hora</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                             alt="Soporte Técnico" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Soporte Técnico</h3>
+                        <p class="text-gray-300 mb-4">
+                            Soluciones rápidas y efectivas para los problemas técnicos de tu empresa.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $500/mes</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Solicitar presupuesto
+                </button>
             </div>
         </div>
     </section>
@@ -165,60 +248,63 @@
 
 
      <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Empresa XYZ</h3>
+                    <h3 class="text-lg font-semibold mb-4">Redolls S.A</h3>
                     <p class="text-gray-400">
-                        Soluciones tecnológicas innovadoras para tu negocio.
+                        Servicios y Ofertas Laborales
                     </p>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+                    <h3 class="text-lg font-semibold mb-4">Atajos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#conocenos" class="text-gray-400 hover:text-white">Conócenos</a></li>
-                        <li><a href="#ofertas" class="text-gray-400 hover:text-white">Ofertas Laborales</a></li>
-                        <li><a href="#servicios" class="text-gray-400 hover:text-white">Servicios</a></li>
-                        <li><a href="#login" class="text-gray-400 hover:text-white">Login</a></li>
+                        <li><a href="conocenos.html" class="text-gray-400 hover:text-white">Conócenos</a></li>
+                        <li><a href="oferta.html" class="text-gray-400 hover:text-white">Ofertas Laborales</a></li>
+                        <li><a href="servicios.html" class="text-gray-400 hover:text-white">Servicios</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white">Login</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Contacto</h3>
                     <ul class="space-y-2">
-                        <li class="text-gray-400">Calle Falsa 123</li>
-                        <li class="text-gray-400">Madrid, España</li>
-                        <li class="text-gray-400">info@xyz.com</li>
-                        <li class="text-gray-400">+34 912 345 678</li>
+                        <li class="text-gray-400">Cra 40 A # 3B- 23</li>
+                        <li class="text-gray-400">La Jagua de Ibirico, Cesar</li>
+                        <li class="text-gray-400">Redollssa@outlook.com</li>
+                        <li class="text-gray-400">+57 3113427128</li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-facebook-f text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                    </div>
+<div class="flex space-x-4">
+    <a href="#">
+        <i class="fab fa-facebook-f text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+    <a href="#">
+        <i class="fab fa-twitter text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+    <a href="#">
+        <i class="fab fa-linkedin-in text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+    <a href="#">
+        <i class="fab fa-instagram text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+</div>
+
+
                 </div>
             </div>
             
             <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
-                <p>&copy; 2023 Empresa XYZ. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Redolls S.A. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
+
     <!-- Final Footer -->
 
    
