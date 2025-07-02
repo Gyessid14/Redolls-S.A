@@ -3,369 +3,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConectaT - Servicios y Empleo</title>
+    <title>Redolls S.A</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="main.css">
-    <body class="font-sans bg-gray-50">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#home" class="text-xl font-bold text-blue-600 flex items-center">
-                        <i class="fas fa-handshake mr-2"></i> ConectaT
-                    </a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Transiciones suaves para el menú móvil */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Efecto hover para las tarjetas */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        /* Estilo para el input de búsqueda de ofertas */
+        .search-jobs::placeholder {
+            color: #6b7280;
+        }
+        
+        /* Estilo para el input de búsqueda de servicios */
+        .search-services::placeholder {
+            color: #e5e7eb;
+        }
+        
+        /* Animación para el botón de login */
+        .login-btn:hover {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-blue-600 font-bold text-2xl">XYZ</span>
+                    <span class="ml-1 text-gray-800 font-semibold">Solutions</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link active text-gray-700 hover:text-blue-600 transition">Inicio</a>
-                    <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 transition">Servicios</a>
-                    <a href="#jobs" class="nav-link text-gray-700 hover:text-blue-600 transition">Vacantes</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">Conócenos</a>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-                        Registrarse
-                    </button>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#conocenos" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Conócenos</a>
+                    <a href="#ofertas" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Ofertas Laborales</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Servicios</a>
+                    <a href="#login" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Login</a>
                 </div>
+                
+                <!-- Botón hamburguesa -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-700">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
                     </button>
                 </div>
             </div>
         </div>
         
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Inicio</a>
-                <a href="#services" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Servicios</a>
-                <a href="#jobs" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Vacantes</a>
-                <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Conócenos</a>
-                <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition mt-2">
-                    Registrarse
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 right-0 w-64 bg-white shadow-lg overflow-y-auto">
+            <div class="px-5 py-4 flex justify-end">
+                <button id="close-menu" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 </button>
+            </div>
+            <div class="px-5 pt-2 pb-8 space-y-4">
+                <a href="#conocenos" class="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium">Conócenos</a>
+                <a href="#ofertas" class="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium">Ofertas Laborales</a>
+                <a href="#servicios" class="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium">Servicios</a>
+                <a href="#login" class="block px-3 py-2 text-gray-700 hover:text-blue-600 font-medium">Login</a>
             </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center justify-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-                    Conectamos <span class="text-blue-600">talento</span> con <span class="text-indigo-600">oportunidades</span>
-                </h1>
-                <p class="text-lg text-gray-600 mb-8">
-                    La plataforma donde profesionales y empresas encuentran lo que necesitan. Servicios a medida y empleos de calidad.
-                </p>
-                <div class="flex space-x-4">
-                    <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition font-medium">
-                        Buscar Servicios
-                    </button>
-                    <button class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition font-medium">
-                        Ver Vacantes
-                    </button>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center fade-in">
-                <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                     alt="Personas trabajando" 
-                     class="rounded-xl shadow-2xl max-w-full h-auto">
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section py-16 bg-white">
+    <!-- Sección Conócenos -->
+    <section id="conocenos" class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Encuentra los servicios que necesitas</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Profesionales independientes listos para ayudarte con cualquier proyecto o necesidad.
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Conócenos</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Más de 15 años ofreciendo soluciones innovadoras para tu negocio
                 </p>
             </div>
             
-            <div class="mb-10 max-w-2xl mx-auto">
-                <div class="relative">
-                    <input type="text" 
-                           placeholder="Buscar servicios (ej. diseño web, plomería, clases de música...)" 
-                           class="w-full px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm">
-                    <button class="absolute right-2 top-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <img class="h-48 w-full object-cover" 
-                         src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
-                         alt="Diseño web">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">Diseño Web Profesional</h3>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Popular</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Creación de sitios web modernos y responsivos para tu negocio o proyecto personal.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$500 - $2000</span>
-                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver perfil</button>
-                        </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-lightbulb text-4xl"></i>
                     </div>
-                </div>
-                
-                <!-- Service Card 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <img class="h-48 w-full object-cover" 
-                         src="https://images.unsplash.com/photo-1581093458171-2e8f8dfb8070?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Clases de música">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">Clases de Guitarra</h3>
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Nuevo</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Aprende guitarra desde cero o mejora tu técnica con clases personalizadas.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$20/hora</span>
-                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver perfil</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service Card 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <img class="h-48 w-full object-cover" 
-                         src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Fotografía profesional">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-gray-800">Fotografía Profesional</h3>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">Destacado</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Sesiones fotográficas para eventos, productos, retratos y más.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$150 - $500</span>
-                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver perfil</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <button class="bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-50 transition font-medium">
-                    Ver todos los servicios
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Jobs Section -->
-    <section id="jobs" class="section py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Encuentra tu próximo trabajo</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Oportunidades laborales de empresas que buscan talento como el tuyo.
-                </p>
-            </div>
-            
-            <div class="mb-10 max-w-2xl mx-auto">
-                <div class="relative">
-                    <input type="text" 
-                           placeholder="Buscar empleos (ej. desarrollador, marketing, contador...)" 
-                           class="w-full px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm">
-                    <button class="absolute right-2 top-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Job Card 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-1">Desarrollador Frontend</h3>
-                                <p class="text-gray-600">TechSolutions Inc.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
-                                 alt="TechSolutions logo" 
-                                 class="h-12 w-12 object-cover rounded-full">
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Remoto</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Tiempo completo</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">React</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Buscamos un desarrollador frontend con experiencia en React para unirse a nuestro equipo de producto.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$3,500 - $4,500/mes</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-                                Postularme
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Job Card 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-1">Diseñador Gráfico</h3>
-                                <p class="text-gray-600">Creative Minds Agency</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                                 alt="Creative Minds logo" 
-                                 class="h-12 w-12 object-cover rounded-full">
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Híbrido</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Medio tiempo</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Photoshop</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Illustrator</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Buscamos un diseñador creativo para trabajar en proyectos de branding y diseño digital.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$1,800 - $2,500/mes</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-                                Postularme
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Job Card 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-1">Especialista en Marketing Digital</h3>
-                                <p class="text-gray-600">Growth Marketing Co.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                                 alt="Growth Marketing logo" 
-                                 class="h-12 w-12 object-cover rounded-full">
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Remoto</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Tiempo completo</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">SEO</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Redes Sociales</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Buscamos un especialista en marketing digital para manejar campañas y estrategias de crecimiento.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$2,800 - $3,500/mes</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-                                Postularme
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Job Card 4 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-1">Asistente Administrativo</h3>
-                                <p class="text-gray-600">Business Solutions Group</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                                 alt="Business Solutions logo" 
-                                 class="h-12 w-12 object-cover rounded-full">
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Presencial</span>
-                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Tiempo completo</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Office</span>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Organización</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Buscamos un asistente administrativo con excelentes habilidades organizativas y manejo de office.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-gray-800">$1,200 - $1,600/mes</span>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-                                Postularme
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <button class="bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-50 transition font-medium">
-                    Ver todas las vacantes
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="section py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Conócenos</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    La plataforma que conecta talento con oportunidades desde 2020.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Nuestra historia</h3>
-                    <p class="text-gray-600 mb-4">
-                        ConectaT nació en 2020 con la misión de crear un puente entre profesionales independientes y personas que necesitan sus servicios, así como entre empresas y talento laboral.
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        Lo que comenzó como un pequeño proyecto local, hoy se ha convertido en una plataforma nacional con miles de usuarios satisfechos.
-                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Innovación</h3>
                     <p class="text-gray-600">
-                        Creemos en el poder de las conexiones humanas y en facilitar oportunidades económicas para todos.
+                        Creamos soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.
                     </p>
                 </div>
-                <div class="flex justify-center fade-in">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Equipo de ConectaT" 
-                         class="rounded-xl shadow-lg max-w-full h-auto">
+                
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Equipo</h3>
+                    <p class="text-gray-600">
+                        Contamos con un equipo altamente cualificado y comprometido con la excelencia.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Resultados</h3>
+                    <p class="text-gray-600">
+                        Hemos ayudado a más de 500 empresas a alcanzar sus objetivos estratégicos.
+                    </p>
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Stat 1 -->
-                <div class="bg-blue-50 p-8 rounded-xl text-center">
-                    <div class="text-5xl font-bold text-blue-600 mb-2">15,000+</div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Servicios ofrecidos</h4>
-                    <p class="text-gray-600">Profesionales independientes registrados</p>
-                </div>
-                
-                <!-- Stat 2 -->
-                <div class="bg-indigo-50 p-8 rounded-xl text-center">
-                    <div class="text-5xl font-bold text-indigo-600 mb-2">8,000+</div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Vacantes publicadas</h4>
-                    <p class="text-gray-600">Oportunidades laborales disponibles</p>
-                </div>
-                
-                <!-- Stat 3 -->
-                <div class="bg-purple-50 p-8 rounded-xl text-center">
-                    <div class="text-5xl font-bold text-purple-600 mb-2">50,000+</div>
-                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Usuarios registrados</h4>
-                    <p class="text-gray-600">Personas que confían en nosotros</p>
+            <div class="mt-12 text-center">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Ver video corporativo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Ofertas Laborales -->
+    <section id="ofertas" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Ofertas Laborales</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Únete a nuestro equipo de profesionales
+                </p>
+            </div>
+            
+            <!-- Buscador de ofertas -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" id="search-jobs" placeholder="Buscar por puesto, tecnología o ubicación..." 
+                           class="search-jobs w-full px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button class="absolute right-2 top-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
             </div>
             
-            <div class="text-center">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">¿Tienes alguna pregunta?</h3>
-                <div class="max-w-md mx-auto">
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium" data-filter="all">Todas</button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="desarrollo">Desarrollo</button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="diseño">Diseño</button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="marketing">Marketing</button>
+                <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="remoto">Remoto</button>
+            </div>
+            
+            <!-- Tarjetas de ofertas -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="jobs-container">
+                <!-- Oferta 1 -->
+                <div class="job-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Remoto</span>
+                            <span class="text-gray-500 text-sm">Hace 2 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Desarrollador Frontend Senior</h3>
+                        <p class="text-gray-600 mb-4">Buscamos un desarrollador con experiencia en React, TypeScript y Next.js para unirse a nuestro equipo de producto.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-medium">$3,500 - $4,200</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 2 -->
+                <div class="job-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="diseño">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">Diseño</span>
+                            <span class="text-gray-500 text-sm">Hace 1 semana</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Diseñador UX/UI</h3>
+                        <p class="text-gray-600 mb-4">Necesitamos un diseñador con experiencia en investigación de usuarios y creación de interfaces atractivas y funcionales.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Figma</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Adobe XD</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">User Research</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-medium">$2,800 - $3,500</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 3 -->
+                <div class="job-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="marketing">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">Marketing</span>
+                            <span class="text-gray-500 text-sm">Hace 3 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Especialista en Marketing Digital</h3>
+                        <p class="text-gray-600 mb-4">Buscamos un profesional con experiencia en SEO, SEM y redes sociales para liderar nuestras campañas digitales.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">SEO</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Google Ads</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Redes Sociales</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-medium">$2,500 - $3,200</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 4 -->
+                <div class="job-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Desarrollo</span>
+                            <span class="text-gray-500 text-sm">Hace 5 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Desarrollador Backend Python</h3>
+                        <p class="text-gray-600 mb-4">Necesitamos un desarrollador con experiencia en Python, Django y bases de datos para nuestro equipo de backend.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Django</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">PostgreSQL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-medium">$3,000 - $3,800</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 5 -->
+                <div class="job-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">Remoto</span>
+                            <span class="text-gray-500 text-sm">Hoy</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ingeniero DevOps</h3>
+                        <p class="text-gray-600 mb-4">Buscamos un ingeniero con experiencia en AWS, Docker y Kubernetes para optimizar nuestra infraestructura.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">AWS</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Docker</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Kubernetes</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-medium">$4,000 - $5,000</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 6 -->
+                <div class="job-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="diseño remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">Remoto</span>
+                            <span class="text-gray-500 text-sm">Hace 4 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Diseñador Gráfico</h3>
+                        <p class="text-gray-600 mb-4">Necesitamos un diseñador creativo con experiencia en branding y diseño de materiales de marketing.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Illustrator</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Photoshop</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Branding</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700 font-medium">$2,200 - $2,800</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ver todas las ofertas
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="py-16 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold sm:text-4xl">Nuestros Servicios</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    Soluciones a medida para cada necesidad empresarial
+                </p>
+            </div>
+            
+            <!-- Buscador de servicios -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" id="search-services" placeholder="¿Qué servicio necesitas?" 
+                           class="search-services w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400">
+                    <button class="absolute right-2 top-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tarjetas de servicios -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-container">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Desarrollo Web" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Desarrollo Web</h3>
+                        <p class="text-gray-300 mb-4">
+                            Creamos sitios web y aplicaciones web a medida, optimizados para rendimiento y conversión.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $1,500</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Aplicaciones Móviles" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Aplicaciones Móviles</h3>
+                        <p class="text-gray-300 mb-4">
+                            Desarrollamos aplicaciones nativas e híbridas para iOS y Android con las últimas tecnologías.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $3,000</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                             alt="Marketing Digital" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Marketing Digital</h3>
+                        <p class="text-gray-300 mb-4">
+                            Estrategias integrales de marketing digital para aumentar tu presencia y conversiones online.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $800/mes</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Diseño UX/UI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Diseño UX/UI</h3>
+                        <p class="text-gray-300 mb-4">
+                            Diseño de interfaces centradas en el usuario que mejoran la experiencia y engagement.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $1,200</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Consultoría TI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Consultoría TI</h3>
+                        <p class="text-gray-300 mb-4">
+                            Asesoramiento especializado para optimizar tus sistemas y procesos tecnológicos.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $150/hora</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="service-card bg-gray-800 rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" 
+                             alt="Soporte Técnico" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Soporte Técnico</h3>
+                        <p class="text-gray-300 mb-4">
+                            Soluciones rápidas y efectivas para los problemas técnicos de tu empresa.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-400 font-medium">Desde $500/mes</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium flex items-center">
+                                Más info <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Solicitar presupuesto
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Login -->
+    <section id="login" class="py-16 bg-gray-50">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Acceso a clientes</h2>
+                <p class="mt-4 text-gray-600">
+                    Ingresa a tu área privada para gestionar tus proyectos y servicios
+                </p>
+            </div>
+            
+            <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+                <form class="mb-0 space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+                        <div class="mt-1">
+                            <input id="email" name="email" type="email" autocomplete="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                        <div class="mt-1">
+                            <input id="password" name="password" type="password" autocomplete="current-password" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" 
+                                   class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">
+                                Recordar sesión
+                            </label>
+                        </div>
+                        
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="login-btn w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Iniciar sesión
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6">
                     <div class="relative">
-                        <input type="email" 
-                               placeholder="Tu correo electrónico" 
-                               class="w-full px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm mb-4">
-                        <textarea placeholder="Tu mensaje..." 
-                                  class="w-full px-6 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm h-32 mb-4"></textarea>
-                        <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition font-medium">
-                            Enviar mensaje
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">
+                                ¿No tienes una cuenta?
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button class="w-full flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Registrarse
                         </button>
                     </div>
                 </div>
@@ -376,138 +547,163 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-handshake mr-2"></i> ConectaT
-                    </h3>
+                    <h3 class="text-lg font-semibold mb-4">Empresa XYZ</h3>
                     <p class="text-gray-400">
-                        Conectando talento con oportunidades desde 2020.
+                        Soluciones tecnológicas innovadoras para tu negocio.
                     </p>
-                    <div class="flex space-x-4 mt-4">
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#conocenos" class="text-gray-400 hover:text-white">Conócenos</a></li>
+                        <li><a href="#ofertas" class="text-gray-400 hover:text-white">Ofertas Laborales</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-white">Servicios</a></li>
+                        <li><a href="#login" class="text-gray-400 hover:text-white">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Calle Falsa 123</li>
+                        <li class="text-gray-400">Madrid, España</li>
+                        <li class="text-gray-400">info@xyz.com</li>
+                        <li class="text-gray-400">+34 912 345 678</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-facebook-f text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-twitter text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i class="fab fa-linkedin-in text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
                     </div>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Enlaces rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Inicio</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Servicios</a></li>
-                        <li><a href="#jobs" class="text-gray-400 hover:text-white transition">Vacantes</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">Conócenos</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Términos y condiciones</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de privacidad</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookies</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
-                            <span>Av. Principal 123, Ciudad</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-2"></i>
-                            <span>+1 234 567 890</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <span>info@conectat.com</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 ConectaT. Todos los derechos reservados.</p>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 Empresa XYZ. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-      <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', fu/ Highlight active navigation link based on scroll position
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
+    <script>
+        // Menú hamburguesa
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
         
-        window.addEventListener('scroll', function() {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Filtrado de ofertas laborales
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const jobCards = document.querySelectorAll('.job-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Quitar clase activa de todos los botones
+                filterBtns.forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
+                filterBtns.forEach(b => b.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300'));
                 
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
+                // Añadir clase activa al botón clickeado
+                btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                btn.classList.add('bg-blue-600', 'text-white');
+                
+                const filter = btn.dataset.filter;
+                
+                jobCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
+        });
+        
+        // Buscador de ofertas
+        const searchJobs = document.getElementById('search-jobs');
+        searchJobs.addEventListener('input', () => {
+            const searchTerm = searchJobs.value.toLowerCase();
             
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
+            jobCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.bg-gray-100')).map(tag => tag.textContent.toLowerCase());
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm))) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
             });
         });
-
-        // Add fade-in animation when elements come into view
-        const fadeElements = document.querySelectorAll('.fade-in');
         
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-active');
+        // Buscador de servicios
+        const searchServices = document.getElementById('search-services');
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        searchServices.addEventListener('input', () => {
+            const searchTerm = searchServices.value.toLowerCase();
+            
+            serviceCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
             });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(element => {
-            fadeInObserver.observe(element);
         });
-    </script>nction(e) {
+        
+        // Scroll suave para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
-
-    </body>
-   
+    </script>
+</body>
+</html>

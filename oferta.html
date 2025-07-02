@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redolls S.A</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="img/redolls2.jpeg" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Transiciones suaves para el menú móvil */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+       
+        
+        /* Animación para el botón de login */
+        .login-btn:hover {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(5, 151, 24, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+
+    <!-- Navbar -->    
+    <nav class="bg-black shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-green-600 font-bold text-2xl">Redolls S.A</span>
+                    
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#conocenos" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Conócenos</a>
+                    <a href="#ofertas" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Ofertas Laborales</a>
+                    <a href="#servicios" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Servicios</a>
+                    <a href="login.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Login</a>
+                </div>
+                
+                <!-- Botón hamburguesa -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-green-700 hover:text-yellow-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Final Menu Navbar -->
+
+        
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 right-0 w-64 bg-black shadow-lg overflow-y-auto">
+            <div class="px-5 py-4 flex justify-end">
+                <button id="close-menu" class="text-green-700 hover:text-yellow-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="px-5 pt-2 pb-8 space-y-4">
+               <a href="#ofertas" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Conocenos</a>
+                <a href="#ofertas" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Ofertas Laborales</a>
+                <a href="#servicios" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Servicios</a>
+                <a href="#login" class="block px-3 py-2 text-green-700 hover:text-yellow-600 font-medium">Login</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Final Menu Movil -->
+
+    <!-- Sección Ofertas Laborales -->
+    <section id="ofertas" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-WHITE sm:text-4xl">Ofertas Laborales</h2>
+                <p class="mt-4 max-w-2xl text-xl text-green-600 mx-auto">
+                    Únete a nuestro equipo de profesionales
+                </p>
+            </div>
+            
+            <!-- Buscador de ofertas -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" id="search-jobs" placeholder="Buscar por puesto, ubicación o profesión..." 
+                           class="search-jobs w-full px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent text-black">
+                    <button class="absolute right-2 top-2 bg-green-600 text-white p-2 rounded-full hover:bg-yellow-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="filter-btn bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium" data-filter="all">Todas</button>
+                <button class="filter-btn bg-green-600 hover:bg-green-600 text-white-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="desarrollo">Desarrollo</button>
+                <button class="filter-btn bg-green-600  hover:bg-gray-300 text-white-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="diseño">Diseño</button>
+                <button class="filter-btn bg-green-600 hover:bg-gray-300 text-white-700 px-4 py-2 rounded-full text-sm font-medium" data-filter="marketing">Marketing</button>
+                
+            </div>
+            
+            <!-- Tarjetas de ofertas -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="jobs-container">
+                <!-- Oferta 1 -->
+                <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Desarrollo</span>
+                            <span class="text-white-500 text-sm">Hace 2 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Desarrollador Frontend Senior</h3>
+                        <p class="text-white-600 mb-4">Buscamos un desarrollador con experiencia en React, TypeScript y Next.js para unirse a nuestro equipo de trabajo.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$3,500 - $4,200</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 2 -->
+                <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="diseño">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Diseño</span>
+                            <span class="text-white-500 text-sm">Hace 1 sem</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Diseñador UX/UI </h3>
+                        <p class="text-white-600 mb-4">Necesitamos un diseñador con experiencia en investigación de usuarios y creación de interfaces atractivas y funcionales.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Sketch</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Figma</span>
+                            
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$4,500 - $5,100</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 3 -->
+                <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Desarrollo</span>
+                            <span class="text-white-500 text-sm">Hace 6 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Desarrollador Backend Python</h3>
+                        <p class="text-white-600 mb-4">Necesitamos un desarrollador con experiencia en Python, Django y bases de datos para nuestro equipo de backend.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Django</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">PostgreSQL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$6,500 - $6,800</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 4 -->
+                <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="diseño">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Diseño</span>
+                            <span class="text-white-500 text-sm">Hace 2 sem</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Diseñador Gráfico</h3>
+                        <p class="text-white-600 mb-4">Se busca diseñador creativo para elaborar piezas gráficas digitales e impresas, con manejo de herramientas como Photoshop e Illustrator.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">PhotoShop</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Illustrator</span>
+                          
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$1,700 - $2,300</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 5 -->
+                 <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="marketing">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Marketing</span>
+                            <span class="text-white-500 text-sm">Hace 3 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Community Manager</h3>
+                        <p class="text-white-600 mb-4">Encargado de la gestión de redes sociales, atención a la comunidad, planificación de contenido y análisis de métricas.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Facebook</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Instagram</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Tik Tok</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$1,100 - $1,300</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oferta 6 -->
+                 <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="marketing">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Marketing</span>
+                            <span class="text-white-500 text-sm">Hace 2 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Desarrollador Frontend Senior</h3>
+                        <p class="text-white-600 mb-4">Buscamos un desarrollador con experiencia en React, TypeScript y Next.js para unirse a nuestro equipo de trabajo.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$3,500 - $4,200</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Oferta 7 -->
+                  <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Remoto</span>
+                            <span class="text-white-500 text-sm">Hace 2 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Desarrollador Frontend Senior</h3>
+                        <p class="text-white-600 mb-4">Buscamos un desarrollador con experiencia en React, TypeScript y Next.js para unirse a nuestro equipo de trabajo.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$3,500 - $4,200</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Oferta 8 -->
+                   <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Remoto</span>
+                            <span class="text-white-500 text-sm">Hace 2 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Desarrollador Frontend Senior</h3>
+                        <p class="text-white-600 mb-4">Buscamos un desarrollador con experiencia en React, TypeScript y Next.js para unirse a nuestro equipo de trabajo.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$3,500 - $4,200</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+                  <!-- oferta 9 -->
+                    <div class="job-card bg-black border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-category="desarrollo remoto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-green-900 text-white-800 text-xs font-semibold px-3 py-1 rounded-full">Remoto</span>
+                            <span class="text-white-500 text-sm">Hace 2 días</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500 mb-2">Desarrollador Frontend Senior</h3>
+                        <p class="text-white-600 mb-4">Buscamos un desarrollador con experiencia en React, TypeScript y Next.js para unirse a nuestro equipo de trabajo.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">TypeScript</span>
+                            <span class="bg-green-800 text-white-800 text-xs px-3 py-1 rounded-full">Next.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-yellow-700 font-medium">$3,500 - $4,200</span>
+                            <button class="text-green-600 hover:text-green-900 font-medium">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-green-600 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ver todas las ofertas
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+     <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Redolls S.A</h3>
+                    <p class="text-gray-400">
+                        Servicios y Ofertas Laborales
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Atajos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#conocenos" class="text-gray-400 hover:text-white">Conócenos</a></li>
+                        <li><a href="#ofertas" class="text-gray-400 hover:text-white">Ofertas Laborales</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-white">Servicios</a></li>
+                        <li><a href="#login" class="text-gray-400 hover:text-white">Login</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Cra 40 A # 3B- 23</li>
+                        <li class="text-gray-400">La Jagua de Ibirico, Cesar</li>
+                        <li class="text-gray-400">Redollssa@outlook.com</li>
+                        <li class="text-gray-400">+57 3113427128</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+<div class="flex space-x-4">
+    <a href="#">
+        <i class="fab fa-facebook-f text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+    <a href="#">
+        <i class="fab fa-twitter text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+    <a href="#">
+        <i class="fab fa-linkedin-in text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+    <a href="#">
+        <i class="fab fa-instagram text-green-500 hover:text-green-300 text-xl"></i>
+    </a>
+</div>
+
+
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Redolls S.A. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Final Footer -->
+
+   
+   
+   <script>
+        // Menú hamburguesa
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Filtrado de ofertas laborales
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const jobCards = document.querySelectorAll('.job-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Quitar clase activa de todos los botones
+                filterBtns.forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
+                filterBtns.forEach(b => b.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300'));
+                
+                // Añadir clase activa al botón clickeado
+                btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                btn.classList.add('bg-blue-600', 'text-white');
+                
+                const filter = btn.dataset.filter;
+                
+                jobCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Buscador de ofertas
+        const searchJobs = document.getElementById('search-jobs');
+        searchJobs.addEventListener('input', () => {
+            const searchTerm = searchJobs.value.toLowerCase();
+            
+            jobCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.bg-gray-100')).map(tag => tag.textContent.toLowerCase());
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm))) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Buscador de servicios
+        const searchServices = document.getElementById('search-services');
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        searchServices.addEventListener('input', () => {
+            const searchTerm = searchServices.value.toLowerCase();
+            
+            serviceCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Scroll suave para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <!-- Final Script -->
+</body>
+</html>
