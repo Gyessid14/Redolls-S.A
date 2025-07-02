@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redolls S.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="img/redolls2.png">
     <style>
         /* Transiciones suaves para el menú móvil */
         .mobile-menu {
@@ -55,105 +55,87 @@
 
 </head>
 <body class="bg-gray-50 font-sans">
-   <div class="text-center space-y-12 max-w-4xl w-full">
-        <!-- Logo animado -->
-        <div class="logo-float">
-            <div class="mx-auto w-48 h-48 md:w-64 md:h-64 bg-white rounded-2xl shadow-2xl flex items-center justify-center transform transition-all duration-500 hover:rotate-6 hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-3/4 h-3/4 text-blue-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            </div>
-            <h1 class="mt-6 text-3xl md:text-5xl font-bold text-gray-800">Nexus<span class="text-blue-500">.</span></h1>
-        </div>
+<section id="hero" class="hero section dark-background">
+  <style>
+    /* Fondo y tipografía */
+    #hero {
+      background: linear-gradient(to bottom, #000000, #01441a);
 
-        <!-- Botón con efecto -->
-        <button id="conoceBtn" class="btn-pulse px-8 py-4 bg-blue-500 text-white font-semibold rounded-full text-lg md:text-xl transition-all duration-300 transform hover:scale-110 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 relative overflow-hidden group">
-            <span class="relative z-10 flex items-center">
-                Conócenos
-                <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-            </span>
-            <span class="absolute inset-0 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-        </button>
+      color: #ffffff;
+      padding: 100px 20px;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Logo grande y responsivo */
+    .logo-hero {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 40px auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-hero:hover {
+      transform: scale(1.05);
+    }
+
+    /* Botones */
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .hero-buttons a {
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 180px;
+      text-align: center;
+    }
+
+    .btn-get-started {
+      background-color: #22c55e;
+      color: white;
+    }
+
+    .btn-get-started:hover {
+      background-color: #087530;
+    }
+
+    .btn-watch-video {
+      background-color: transparent;
+      border: 2px solid #22c55e;
+      color: #22c55e;
+    }
+
+    .btn-watch-video:hover {
+      background-color: #cee6d7;
+      color: rgb(44, 156, 21);
+    }
+  </style>
+
+  <div class="container">
+    <!-- Logo centrado -->
+    <img src="img/redolls4.png" alt="Logo REDOLLS" class="logo-hero">
+
+    <!-- Botones centrados -->
+    <div class="hero-buttons">
+      <a href="conocenos.html" class="btn-get-started">Conocenos</a>
+      <a href="login.html" class="btn-watch-video">Iniciar Sesión</a>
     </div>
-
-    <!-- Modal que aparecerá al hacer clic -->
-    <div id="infoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-xl max-w-md w-full p-8 transform transition-all duration-300 scale-95">
-            <div class="flex justify-between items-start mb-6">
-                <h2 class="text-2xl font-bold text-gray-800">Sobre Nosotros</h2>
-                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <p class="text-gray-600 mb-6">Somos una empresa innovadora dedicada a crear soluciones digitales que transforman la manera en que las personas interactúan con la tecnología. Nuestro equipo de expertos combina creatividad y conocimiento técnico para ofrecer productos excepcionales.</p>
-            <div class="flex space-x-4">
-                <a href="#" class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition">Portafolio</a>
-                <a href="#" class="flex-1 border border-blue-500 text-blue-500 py-2 px-4 rounded-lg text-center hover:bg-blue-50 transition">Contacto</a>
-            </div>
-        </div>
-    </div>
+  </div>
+</section>
 
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Empresa XYZ</h3>
-                    <p class="text-gray-400">
-                        Soluciones tecnológicas innovadoras para tu negocio.
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#conocenos" class="text-gray-400 hover:text-white">Conócenos</a></li>
-                        <li><a href="#ofertas" class="text-gray-400 hover:text-white">Ofertas Laborales</a></li>
-                        <li><a href="#servicios" class="text-gray-400 hover:text-white">Servicios</a></li>
-                        <li><a href="#login" class="text-gray-400 hover:text-white">Login</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
-                    <ul class="space-y-2">
-                        <li class="text-gray-400">Calle Falsa 123</li>
-                        <li class="text-gray-400">Madrid, España</li>
-                        <li class="text-gray-400">info@xyz.com</li>
-                        <li class="text-gray-400">+34 912 345 678</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-facebook-f text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
-                <p>&copy; 2023 Empresa XYZ. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
 
+
+   
     <script>
         // Menú hamburguesa
         const menuBtn = document.getElementById('menu-btn');
