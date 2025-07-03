@@ -36,6 +36,8 @@
                 box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
             }
         }
+
+        
     </style>
 
 </head>
@@ -49,16 +51,16 @@
 
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html"><span class="text-green-600 font-bold text-2xl">Redolls S.A</span></a>
+                    <a href="index.html"><span class="text-green-400 font-bold text-2xl">Redolls S.A</span></a>
                     
                 </div>
                 
                 <!-- Menú desktop -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="conocenos.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Conócenos</a>
-                    <a href="oferta.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Ofertas Laborales</a>
-                    <a href="servicios.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Servicios</a>
-                    <a href="login.html" class="text-green-700 hover:text-yellow-600 px-3 py-2 font-medium">Login</a>
+                    <a href="conocenos.html" class="text-green-400 hover:text-yellow-500 px-3 py-2 font-medium">Conócenos</a>
+                    <a href="oferta.html" class="text-green-400 hover:text-yellow-500 px-3 py-2 font-medium">Ofertas Laborales</a>
+                    <a href="servicios.html" class="text-green-400 hover:text-yellow-500 px-3 py-2 font-medium">Servicios</a>
+                    <a href="login.html" class="text-green-400 hover:text-yellow-500 px-3 py-2 font-medium">Login</a>
                 </div>
                 
                 <!-- Botón hamburguesa -->
@@ -96,24 +98,251 @@
      <!-- Sección Conócenos -->
 <section id="conocenos" class="py-16 bg-gray-900 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
+        <div class="text-center mb-1">
             <!-- Logo centrado y responsivo -->
-            <img src="img/redolls4.png" alt="Logo" class="mx-auto mb-6 w-32 sm:w-70 md:w-48 lg:w-50 xl:w-64">
+            <img src="img/redolls4.png" alt="Logo" class="mx-auto mt-0.5 w-32 sm:w-70 md:w-48 lg:w-50 xl:w-64">
 
             <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Conócenos</h2>
-            <p class="mt-4 max-w-2xl text-xl text-green-500 mx-auto">
+            <p class="mt-4 max-w-2xl text-xl text-green-400 mx-auto">
                Transformamos desafíos en oportunidades con tecnología, talento humano y estrategias diseñadas para llevar tu vida cotidiana al siguiente nivel.
             </p>
         </div>
+        <!-- Final Conocenos -->
         
+        
+    
+
+     <!-- BOTÓN SOLO EN MÓVIL -->
+  <div class="flex justify-center md:hidden p-4">
+    <button id="mobile-open" class="bg-green-800 text-white p-4 rounded-full shadow-lg flex items-center space-x-2 hover:bg-green-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <span>Buscar</span>
+    </button>
+  </div>
+
+  <!-- BARRA MÓVIL EXPANDIBLE -->
+  <div id="mobile-search" class="hidden md:hidden px-4 space-y-4 transition-all duration-300 bg-gray-800 py-4 rounded-lg">
+    <div class="flex justify-between items-center">
+      <h2 class="text-lg font-semibold text-green-500 aling-items">Buscar Ofertas o Servicios</h2>
+      <button id="mobile-close" class="text-green-800 hover:text-gray-800 text-2xl">X</button>
+    </div>
+    <input type="text" placeholder="Cargo o categoría"
+           class="w-full px-4 py-2 border border-green-400 rounded-full outline-none text-black"/>
+    <div class="relative">
+      <input
+        type="text"
+        id="city-input-sm"
+        placeholder="Lugar"
+        class="w-full px-4 py-2 border border-green-400 rounded-full outline-none text-black"
+        oninput="filterCities('city-input-sm','suggestions-sm')"
+        autocomplete="off"
+      />
+      <ul id="suggestions-sm"
+          class="absolute top-12 left-0 w-full bg-white border border-gray-200 rounded-md shadow-md z-10 hidden text-black">
+      </ul>
+    </div>
+    <button class="bg-green-800 text-white py-2 rounded-full font-semibold hover:bg-green-600 transition w-full">
+      Buscar 
+    </button>
+  </div>
+  
+
+  <!-- BARRA DE ESCRITORIO CENTRADA -->
+  <div class="hidden md:flex justify-center mt-12">
+
+    <div class="bg-white shadow-lg rounded-full items-center px-4 py-2 space-x-4 w-full max-w-4xl flex">
+      
+      <!-- Campo: Cargo o Categoría -->
+      <div class="flex items-center flex-grow border-r border-gray-300 pr-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-800 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 17v-1a3 3 0 00-3-3H5a3 3 0 00-3 3v1m6-4a3 3 0
+                   100-6 3 3 0 000 6zm6 4v-1a3 3 0
+                   013-3h1a3 3 0 013 3v1m-6-4a3 3 0
+                   100-6 3 3 0 000 6z"/>
+        </svg>
+        <input type="text" placeholder="Cargo o categoría" class="w-full bg-transparent outline-none text-gray-700"/>
+      </div>
+
+      <!-- Campo: Lugar -->
+      <div class="relative flex items-center flex-grow">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-800 mr-2" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17.657 16.657L13.414 12.414a4 4 0
+                   10-1.414 1.414l4.243 4.243a1 1 0
+                   001.414-1.414z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 11a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+        <input
+          type="text"
+          id="city-input-md"
+          placeholder="Lugar"
+          class="w-full bg-transparent outline-none text-gray-700"
+          oninput="filterCities('city-input-md','suggestions-md')"
+          autocomplete="off"
+        />
+        <ul id="suggestions-md"
+            class="absolute top-10 left-0 w-full bg-white border border-gray-200 rounded-md shadow-md z-10 hidden text-black">
+        </ul>
+      </div>
+
+      <!-- Botón Buscar -->
+      <button class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold flex items-center hover:bg-green-600 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-white" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7
+                   0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        Buscar empleos
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL DE CATEGORÍA -->
+<div id="category-modal"
+     class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex items-center justify-center p-4 overflow-auto">
+  <div class="bg-zinc-800 w-full max-w-2xl max-h-[90vh] rounded-xl p-6 text-black relative overflow-y-auto">
+    <!-- Cerrar -->
+    <button id="close-modal" class="absolute top-4 right-4 text-gray-500 text-2xl hover:text-black">x</button>
+
+    <h2 class="text-xl font-bold mb-4 text-white">Selecciona una categoría</h2>
+
+    <!-- Ofertas laborales -->
+    <div>
+      <h3 class="text-green-400 font-semibold mb-2">Ofertas laborales</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+        <div class="category-item" data-value="Administrativo">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-briefcase text-blue-600 text-2xl mb-2"></i>
+            <span class="text-sm">Administrativo</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Ventas">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-shopping-cart text-green-600 text-2xl mb-2"></i>
+            <span class="text-sm">Ventas</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Técnico">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-tools text-yellow-600 text-2xl mb-2"></i>
+            <span class="text-sm">Técnico</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Educación">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-chalkboard-teacher text-indigo-600 text-2xl mb-2"></i>
+            <span class="text-sm">Educación</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Salud">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-user-nurse text-red-600 text-2xl mb-2"></i>
+            <span class="text-sm">Salud</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Logística">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-truck-moving text-orange-600 text-2xl mb-2"></i>
+            <span class="text-sm">Logística</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Cultivos">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-seedling text-green-700 text-2xl mb-2"></i>
+            <span class="text-sm">Cultivos</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Mecánica">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-cogs text-gray-700 text-2xl mb-2"></i>
+            <span class="text-sm">Mecánica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicios -->
+    <div>
+      <h3 class="text-green-400 font-semibold mb-2">Servicios</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div class="category-item" data-value="Plomería">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-wrench text-cyan-600 text-2xl mb-2"></i>
+            <span class="text-sm">Plomería</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Electricidad">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-bolt text-yellow-500 text-2xl mb-2"></i>
+            <span class="text-sm">Electricidad</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Carpintería">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-hammer text-amber-600 text-2xl mb-2"></i>
+            <span class="text-sm">Carpintería</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Reparaciones">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-screwdriver-wrench text-blue-600 text-2xl mb-2"></i>
+            <span class="text-sm">Reparaciones</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Limpieza">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-soap text-indigo-500 text-2xl mb-2"></i>
+            <span class="text-sm">Limpieza</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Pintura">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-paint-roller text-red-400 text-2xl mb-2"></i>
+            <span class="text-sm">Pintura</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Transporte">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-shuttle-van text-lime-600 text-2xl mb-2"></i>
+            <span class="text-sm">Transporte</span>
+          </div>
+        </div>
+        <div class="category-item" data-value="Tecnología">
+          <div class="flex flex-col items-center bg-black p-4 rounded-lg text-white hover:bg-green-800 cursor-pointer">
+            <i class="fas fa-laptop-code text-blue-500 text-2xl mb-2"></i>
+            <span class="text-sm">Tecnología</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Final Barra -->
+
+
+ <!--Espacio entre barra y tarjetas  -->
+ <br>
+ <!-- finalespacio -->
+
+
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-black p-6 rounded-lg shadow-md card-hover">
                 <div class="text-yellow-400 mb-4">
                     <i class="fas fa-lightbulb text-4xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-green-600 mb-3">Innovación</h3>
+                <h3 class="text-xl font-bold text-green-400 mb-3">Servicios</h3>
                 <p class="text-white">
-                    Creamos soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.
+                    Ofrece tus servicios y conecta con quienes los necesitan.
                 </p>
             </div>
             
@@ -121,9 +350,9 @@
                 <div class="text-purple-600 mb-4">
                     <i class="fas fa-users text-4xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-green-600 mb-3">Equipo</h3>
+                <h3 class="text-xl font-bold text-green-400 mb-3">Vacantes</h3>
                 <p class="text-white">
-                    Contamos con un equipo altamente cualificado y comprometido con la excelencia.
+                    Los usuarios pueden postularse a vacantes activas según su perfil profesional.
                 </p>
             </div>
             
@@ -131,9 +360,9 @@
                 <div class="text-red-600 mb-4">
                     <i class="fas fa-chart-line text-4xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-green-600 mb-3">Resultados</h3>
+                <h3 class="text-xl font-bold text-green-400 mb-3">Ofertas Laborales</h3>
                 <p class="text-white">
-                    Hemos ayudado a más de 500 empresas a alcanzar sus objetivos estratégicos.
+                    Empresas y personas pueden publicar sus ofertas de empleo para atraer talento.
                 </p>
             </div>
         </div>
@@ -206,119 +435,187 @@
 
    
    
-   <script>
-        // Menú hamburguesa
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Filtrado de ofertas laborales
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const jobCards = document.querySelectorAll('.job-card');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Quitar clase activa de todos los botones
-                filterBtns.forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
-                filterBtns.forEach(b => b.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300'));
-                
-                // Añadir clase activa al botón clickeado
-                btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-                btn.classList.add('bg-blue-600', 'text-white');
-                
-                const filter = btn.dataset.filter;
-                
-                jobCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category.includes(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Buscador de ofertas
-        const searchJobs = document.getElementById('search-jobs');
-        searchJobs.addEventListener('input', () => {
-            const searchTerm = searchJobs.value.toLowerCase();
-            
-            jobCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                const tags = Array.from(card.querySelectorAll('.bg-gray-100')).map(tag => tag.textContent.toLowerCase());
-                
-                if (title.includes(searchTerm) || description.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm))) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-        
-        // Buscador de servicios
-        const searchServices = document.getElementById('search-services');
-        const serviceCards = document.querySelectorAll('.service-card');
-        
-        searchServices.addEventListener('input', () => {
-            const searchTerm = searchServices.value.toLowerCase();
-            
-            serviceCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-        
-        // Scroll suave para los enlaces del menú
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-    <!-- Final Script -->
+  <script>
+  // Menú hamburguesa
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMenu = document.getElementById('close-menu');
 
-  <!-- Volver inicio -->
-    <script>
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  const menuLinks = document.querySelectorAll('#mobile-menu a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Filtrado de ofertas laborales
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const jobCards = document.querySelectorAll('.job-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
+      filterBtns.forEach(b => b.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300'));
+
+      btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+      btn.classList.add('bg-blue-600', 'text-white');
+
+      const filter = btn.dataset.filter;
+
+      jobCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category.includes(filter)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Buscador de ofertas
+  const searchJobs = document.getElementById('search-jobs');
+  if (searchJobs) {
+    searchJobs.addEventListener('input', () => {
+      const searchTerm = searchJobs.value.toLowerCase();
+
+      jobCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        const tags = Array.from(card.querySelectorAll('.bg-gray-100')).map(tag => tag.textContent.toLowerCase());
+
+        if (title.includes(searchTerm) || description.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm))) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Buscador de servicios
+  const searchServices = document.getElementById('search-services');
+  const serviceCards = document.querySelectorAll('.service-card');
+
+  if (searchServices) {
+    searchServices.addEventListener('input', () => {
+      const searchTerm = searchServices.value.toLowerCase();
+
+      serviceCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Scroll suave para los enlaces del menú
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+<!-- Volver inicio -->
+<script>
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
 </script>
+
+<!-- Barra de búsqueda con autocompletado -->
+<script>
+  const cities = ["Aguachica", "Agustín Codazzi", "Astrea", "Becerril", "Bosconia", "Chimichagua", "Chiriguaná", "Curumaní", "El Copey", "El Paso", "Gamarra", "González", "La Gloria", "La Jagua de Ibirico", "La Paz", "Manaure Balcón del Cesar", "Pailitas", "Pelaya", "Pueblo Bello", "Río de Oro", "San Alberto", "San Diego", "San Martín", "Tamalameque", "Valledupar"];
+
+  function filterCities(inputId, listId) {
+    const input = document.getElementById(inputId).value.toLowerCase();
+    const suggestions = document.getElementById(listId);
+    suggestions.innerHTML = "";
+    if (!input) return suggestions.classList.add("hidden");
+
+    const matches = cities.filter(city => city.toLowerCase().includes(input));
+    if (!matches.length) return suggestions.classList.add("hidden");
+
+    matches.forEach(city => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.className = "px-4 py-2 hover:bg-gray-100 cursor-pointer";
+      li.onclick = () => {
+        document.getElementById(inputId).value = city;
+        suggestions.classList.add("hidden");
+      };
+      suggestions.appendChild(li);
+    });
+    suggestions.classList.remove("hidden");
+  }
+
+  // Mostrar barra móvil
+  document.getElementById("mobile-open").addEventListener("click", () => {
+    document.getElementById("mobile-search").classList.remove("hidden");
+  });
+
+  // Ocultar barra móvil
+  document.getElementById("mobile-close").addEventListener("click", () => {
+    document.getElementById("mobile-search").classList.add("hidden");
+  });
+</script>
+
+<!-- Script Modal Categoría -->
+<script>
+  const categoryModal = document.getElementById('category-modal');
+  const closeBtn = document.getElementById('close-modal');
+
+  const categoryInputs = document.querySelectorAll('input[placeholder="Cargo o categoría"]');
+
+  categoryInputs.forEach(input => {
+    input.addEventListener('focus', () => {
+      categoryModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden'); // Evita scroll en fondo
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    categoryModal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden'); // Restaura scroll
+  });
+
+  document.querySelectorAll('.category-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const value = item.getAttribute('data-value');
+      categoryInputs.forEach(input => input.value = value);
+      categoryModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden'); // Restaura scroll
+    });
+  });
+</script>
+
 
 </body>
 </html>
